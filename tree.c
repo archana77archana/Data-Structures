@@ -1,10 +1,11 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
 struct node
 {
 	struct node *left, *right;
-	int data;
+	int key;
 };
 
 /*
@@ -14,20 +15,18 @@ struct node *search(struct node* root, int key)
 	{
 		return root;
 	}
-
 	if(root->key < key)
 	{
 		return search(root->right, key);
 	}
-
 	return search(root->left, key);
 }
 */
-struct node *newNode(int key)
+struct node *newNode(int item)
 {
 	struct node *temp = (struct node *)malloc(sizeof(struct node));
 
-	temp->key = key;
+	temp->key = item;
 	temp->left = temp->right = NULL;
 
 	return temp;
